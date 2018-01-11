@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db5fc83fbe14f10fa9fd62e57250ad61",
+    "content-hash": "c08259cf227d19aab15b4b5dd3710547",
     "packages": [
         {
             "name": "acquia/blt",
@@ -252,6 +252,47 @@
             ],
             "description": "The best of Drupal, curated by Acquia",
             "time": "2018-01-04T20:51:50+00:00"
+        },
+        {
+            "name": "amcgowanca/composer-patches-drupal-patching",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amcgowanca/composer-patches-drupal-patching.git",
+                "reference": "9fd78b2f43ac51b21922f7a9a6d37e0c3aee3c63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/amcgowanca/composer-patches-drupal-patching/zipball/9fd78b2f43ac51b21922f7a9a6d37e0c3aee3c63",
+                "reference": "9fd78b2f43ac51b21922f7a9a6d37e0c3aee3c63",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0",
+                "cweagans/composer-patches": "1.x-dev",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "AaronMcGowan\\Composer\\Patching\\DrupalCorePatching"
+            },
+            "autoload": {
+                "psr-4": {
+                    "AaronMcGowan\\Composer\\Patching\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Aaron McGowan",
+                    "email": "me@amcgowan.ca"
+                }
+            ],
+            "description": "A work-around solution for patching Drupal 8 core with cweagans/composer-patches.",
+            "time": "2018-01-11T13:43:05+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -941,16 +982,16 @@
         },
         {
             "name": "cweagans/composer-patches",
-            "version": "1.6.4",
+            "version": "1.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cweagans/composer-patches.git",
-                "reference": "462e65061606dc6149349535d4322241515d1b16"
+                "url": "https://github.com/amcgowanca/composer-patches.git",
+                "reference": "2eeba8aa7ecca90b69a6c7386522635783e553cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cweagans/composer-patches/zipball/462e65061606dc6149349535d4322241515d1b16",
-                "reference": "462e65061606dc6149349535d4322241515d1b16",
+                "url": "https://api.github.com/repos/amcgowanca/composer-patches/zipball/2eeba8aa7ecca90b69a6c7386522635783e553cf",
+                "reference": "2eeba8aa7ecca90b69a6c7386522635783e553cf",
                 "shasum": ""
             },
             "require": {
@@ -970,9 +1011,13 @@
                     "cweagans\\Composer\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "cweagans\\Composer\\Tests\\": "tests"
+                }
+            },
             "license": [
-                "BSD-2-Clause"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -981,7 +1026,10 @@
                 }
             ],
             "description": "Provides a way to patch Composer packages.",
-            "time": "2017-12-07T16:16:31+00:00"
+            "support": {
+                "source": "https://github.com/amcgowanca/composer-patches/tree/1.x"
+            },
+            "time": "2018-01-11T12:22:53+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -10870,7 +10918,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "cweagans/composer-patches": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
